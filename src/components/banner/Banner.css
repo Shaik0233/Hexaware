@@ -1,0 +1,36 @@
+/* Overlay for better readability on small screens */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+}
+
+/* Text Animation */
+.hover-move {
+  width: 32px;
+  height: 24px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.hover-move:hover {
+  transform: translateX(10px);
+}
+
+/* Responsive text adjustments */
+@media (max-width: 768px) {
+  .title-text {
+    font-size: 3rem !important;
+  }
+
+  .fs-3 {
+    font-size: 1.5rem !important;
+  }
+
+  .fs-5 {
+    font-size: 1.2rem !important;
+  }
+}

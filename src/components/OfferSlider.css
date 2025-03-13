@@ -1,0 +1,63 @@
+.offer-slider-container {
+    width: 90%;
+    margin: 30px auto;
+    position: relative;
+  }
+  
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .slider-arrow:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #000;
+  }
+  
+  .left-arrow {
+    left: -40px;
+  }
+  
+  .right-arrow {
+    right: -40px;
+  }
+  .offer-slider-wrapper {
+    background-color: rgb(53, 53, 241); /* Apply the Hexaware blue background */
+    padding: 50px 0; /* Add padding for spacing */
+  }
+  
+  
+  /* Responsive Arrow Positioning */
+  @media (max-width: 768px) {
+    .left-arrow {
+      left: -20px;
+    }
+    .right-arrow {
+      right: -20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .left-arrow {
+      left: 5px;
+    }
+    .right-arrow {
+      right: 5px;
+    }
+  }
+  
+  .slick-slide > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

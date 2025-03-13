@@ -1,0 +1,358 @@
+:root {
+    --dark_blue: #07125E;
+    --gold: #d4af37;
+  }
+  
+  .custom-navbar {
+    background-color: var(--dark_blue) !important;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Ensure text is white */
+  .custom-navbar .navbar-brand,
+  .custom-navbar .nav-link,
+  .custom-navbar .dropdown-toggle {
+    color: white !important;
+    font-weight: 500;
+  }
+  
+  /* Brand styling */
+  .custom-navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  /* Toggle button styling */
+  .navbar-toggler {
+    border: none !important;
+    background: transparent !important;
+    padding: 0.5rem;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none !important;
+  }
+  
+  /* Search icon styling */
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+  }
+  
+  .search-icon {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  /* Dropdown styling */
+  .dropdown-toggle::after {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    border: none;
+  }
+  
+  /* Dropdown container - desktop */
+  .dropdown-grid {
+    width: 100%;
+    max-width: 100vw;
+    position: fixed;
+    left: 0;
+    /* Match navbar height */
+    background: white;
+    padding-top: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1030;
+    overflow-y: auto;
+    max-height: calc(100vh - 56px);
+  }
+  
+  /* Dropdown container - mobile */
+  .dropdown-mobile {
+    width: 100%;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+  
+  /* Card styling inside dropdown */
+  .dropdown-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .dropdown-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dropdown-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark_blue);
+    margin-bottom: 0.5rem;
+  }
+  
+  .dropdown-card .card-text {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Offer card styling */
+  .offer-card {
+    background-color: rgba(7, 18, 94, 0.05);
+    border-left: 4px solid var(--dark_blue);
+  }
+  
+  /* .offer-card .card-title {
+    color: var(--dark_blue);
+    font-weight: 700;
+    color: white;
+  } */
+  
+  /* Hover effect for nav links */
+  .custom-navbar .nav-link,
+  .custom-navbar .dropdown-toggle {
+    position: relative;
+    padding-bottom: 0.25rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Remove dropdown arrow */
+
+  
+  /* Keep hover effects */
+  .custom-navbar .nav-link::after,
+  .custom-navbar .dropdown-toggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--gold);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .custom-navbar .nav-link:hover,
+  .custom-navbar .dropdown-toggle:hover {
+    color: var(--gold) !important;
+  }
+  
+  .custom-navbar .nav-link:hover::after,
+  .custom-navbar .dropdown-toggle:hover::after {
+    width: 100%;
+  }
+
+  
+  
+  
+  /* Responsive media queries */
+  @media (max-width: 991.98px) {
+    .custom-navbar .navbar-collapse {
+      background-color: var(--dark_blue);
+      padding: 1rem;
+    }
+    
+    .dropdown-mobile {
+      position: static;
+      width: 100%;
+    }
+    
+    .custom-navbar .nav-link,
+    .custom-navbar .dropdown-toggle {
+      padding: 0.5rem 0;
+    }
+    
+    .custom-navbar .nav-link::after,
+    .custom-navbar .dropdown-toggle::after {
+      bottom: 0;
+    }
+    
+    /* Handle dropdown display on mobile */
+    .navbar-nav .dropdown-menu {
+      position: static !important;
+      float: none;
+      width: 100%;
+      margin-top: 0.5rem;
+      background-color: white;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Prevent dropdown from closing on mobile when clicking inside */
+    .dropdown-menu.show {
+      display: block !important;
+    }
+  }
+  
+  /* For medium-sized screens */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .dropdown-mobile .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .dropdown-mobile .col-12 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* For larger screens */
+  @media (min-width: 992px) {
+    .custom-navbar .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    
+    .custom-navbar .navbar-nav {
+      flex-direction: row;
+    }
+    
+    /* Ensure dropdown remains visible on hover */
+    .hover-dropdown:hover .dropdown-menu,
+    .hover-dropdown.show .dropdown-menu {
+      display: block;
+    }
+    
+    /* Handle fullscreen dropdown properly */
+    .dropdown-grid .row {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* For extra large screens */
+  @media (min-width: 1200px) {
+    .dropdown-grid {
+      padding: 3rem;
+    }
+    
+    .dropdown-grid .row {
+      max-width: 1400px;
+    }
+  }
+
+  :root {
+    --dark_blue: #07125E;
+    --gold: #d4af37;
+    --card-bg: #f8f9fa;
+    --card-hover-bg: #07125E;
+    --card-hover-text: white;
+  }
+  
+  .custom-navbar {
+    background-color: var(--dark_blue) !important;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Ensure text is white */
+  .custom-navbar .navbar-brand,
+  .custom-navbar .nav-link,
+  .custom-navbar .dropdown-toggle {
+    color: white !important;
+    font-weight: 500;
+  }
+  
+  /* Brand styling */
+  .custom-navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  /* Search icon */
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+  }
+  
+  .search-icon {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  /* Dropdown styling */
+  .hover-dropdown .dropdown-menu {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  }
+  
+  .hover-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Dropdown container */
+  .dropdown-container {
+    background: white;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-width: 250px;
+  }
+  
+  /* Card styling */
+  .dropdown-card {
+    border: none;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .dropdown-card:hover {
+    background: var(--card-hover-bg);
+    color: var(--card-hover-text);
+    transform: translateY(-3px);
+  }
+  
+  /* Change title and text color on hover */
+  .dropdown-card:hover .card-title,
+  .dropdown-card:hover .card-text {
+    color: var(--card-hover-text);
+  }
+  
+  /* Small image in the bottom-right corner */
+  .dropdown-card::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://cdn-icons-png.flaticon.com/128/1828/1828884.png'); /* Example image */
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .dropdown-card:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  /* Remove dropdown arrow */
+  .offer-card:hover .card-title {
+    color: blue !important;
+    transition: color 0.3s ease-in-out;
+}
+
+  
+  
