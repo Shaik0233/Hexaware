@@ -7,6 +7,7 @@ import OfferSlider from "../components/OfferSlider";
 import CustomLayout from "../components/third/Title";
 import Fourth from "../components/fourth/Fourth";
 import Fifth from "../components/fifth/Fifth";
+import Sixth from "../components/six/Sixth";
 
 function LandingPage() {
   return (
@@ -17,6 +18,7 @@ function LandingPage() {
       <CustomLayout/>
       <Fourth/>
       <Fifth/>
+      <Sixth/>
     </div>
   );
 }
