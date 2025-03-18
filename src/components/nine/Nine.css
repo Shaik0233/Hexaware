@@ -1,0 +1,69 @@
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    padding: 20px 0;
+    background-color: #3a32c9; /* Matches blue background */
+    border-radius: 10px;
+    padding-bottom: 50px;
+  }
+  
+  /* Smooth Transition for Cards */
+  .card-slide {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Progress Bar */
+  .progress-container {
+    width: 70%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px auto;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 6px;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  /* Navigation Buttons */
+  .slider-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: -50px;
+    margin-right: 20px;
+  }
+  
+  /* Hexagonal Buttons */
+  .slider-btn {
+    background: #ffffff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .slider-btn:hover {
+    background: #b3b3ff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Left button positioning */
+  .left {
+    margin-right: 10px;
+  }
+  .slick-slide > div{
+    margin:10px 10px;
+  }

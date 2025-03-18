@@ -7,80 +7,63 @@ function FetchPhotos() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    console.log("Fetching data from API...");
+
     fetch("https://jsonplaceholder.typicode.com/photos")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
+      .then((res) => {
+        console.log("Response Status:", res.status);
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.json();
       })
-      .then((json) => {
-        console.log("Fetched Data:", json.slice(0, 12)); // Debugging
-        setPhotos(json.slice(0, 12)); // Only 12 photos
-        setLoading(false);
+      .then((data) => {
+        console.log("Fetched Data:", data.slice(0, 12)); // Log first 12 items
+        setPhotos(data.slice(0, 12));
       })
-      .catch((error) => {
-        console.error("Error fetching photos:", error);
-        setError(error.message);
-        setLoading(false);
-      });
+      .catch((err) => {
+        console.error("Fetch Error:", err);
+        setError(err.message);
+      })
+      .finally(() => setLoading(false));
   }, []);
 
-  // Check if images are loading correctly
-  const handleImageError = (id) => {
-    console.error(`Image with ID ${id} failed to load`);
-  };
-
-  // Use a more reliable image source as fallback
-  const getReliableImageUrl = (id) => `https://picsum.photos/id/${id % 1000}/200/200`;
+  if (loading) return <p className="text-center">Loading...</p>;
+  if (error) return <p className="text-center text-danger">Error: {error}</p>;
 
   return (
     <div className="container mt-4">
       <h2 className="text-center mb-4">Fetched Photos</h2>
+      <div className="row">
+        {photos.map(({ id, title, url, thumbnailUrl }) => {
+          const fallbackImage = `https://picsum.photos/id/${id % 1000}/200/200`;
 
-      {loading ? (
-        <div className="text-center">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-          <p className="mt-2">Loading photos...</p>
-        </div>
-      ) : error ? (
-        <div className="alert alert-danger text-center">
-          <strong>Error:</strong> {error}
-        </div>
-      ) : (
-        <div className="row">
-          {photos.map((photo) => (
-            <div key={photo.id} className="col-md-4 mb-4">
-              <div className="card shadow-sm h-100">
+          return (
+            <div key={id} className="col-md-4 mb-4">
+              <div className="card shadow-sm">
                 <img
-                  src={photo.thumbnailUrl || getReliableImageUrl(photo.id)}
-                  alt={photo.title || "Photo"}
+                  src={thumbnailUrl}
+                  alt={title}
                   className="card-img-top"
                   onError={(e) => {
-                    handleImageError(photo.id);
-                    e.target.src = getReliableImageUrl(photo.id);
+                    console.warn(`Image failed to load: ${thumbnailUrl}. Using fallback.`);
+                    e.target.src = fallbackImage;
                   }}
                   style={{ height: "200px", objectFit: "cover" }}
                 />
-                <div className="card-body d-flex flex-column">
-                  <h6 className="card-title text-truncate" title={photo.title}>
-                    {photo.title}
-                  </h6>
-                  <div className="mt-auto d-flex justify-content-between align-items-center">
-                    <a href={photo.url} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
-                      View Full Image
-                    </a>
-                    <small className="text-muted">ID: {photo.id}</small>
-                  </div>
+                <div className="card-body">
+                  <h6 className="text-truncate" title={title}>{title}</h6>
+                  <p className="text-muted small">Source: {thumbnailUrl}</p>
+                  <button
+                    onClick={() => window.open(url, "_blank")}
+                    className="btn btn-sm btn-primary"
+                  >
+                    View Full Image
+                  </button>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      )}
+          );
+        })}
+      </div>
     </div>
   );
 }

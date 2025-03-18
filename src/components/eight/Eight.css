@@ -2,10 +2,13 @@
     width: 300px;
     transition: background-color 0.3s ease-in-out;
     overflow: hidden;
+    background-color: blue;
+    
   }
   
   .custom-card:hover {
-    background-color: #f8d7da;
+    background-color: #fff;
+    
   }
   
   .hover-image {
@@ -39,6 +42,9 @@
   font-weight: bold;
   border-radius: 10px;
   position: relative;
+}
+.custom-card:hover{
+  color: rgb(128, 0, 122);
 }
 
 /* Applies only to the LandingPage instance */
