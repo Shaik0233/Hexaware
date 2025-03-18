@@ -1,0 +1,79 @@
+.custom-card{
+    background-color: red;
+    color: white;
+}
+
+/* Default styling for all custom cards */
+.custom-card {
+    width: 350px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Applies only to the LandingPage instance */
+  .landing-page-card {
+    background-image: url("/images/food_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  /* Dark overlay for better readability */
+  .landing-page-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.5s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  /* Hover effect (applies only to LandingPage component) */
+  .landing-page-card:hover {
+    background-image: none !important; /* Remove background image */
+    background-color: #ffcc00 !important; /* Change background color */
+    color: black !important;
+  }
+  
+  /* Remove overlay on hover */
+  .landing-page-card:hover::before {
+    background: rgba(255, 255, 255, 0);
+  }
+  
+  /* Hide the hover image inside LandingPage */
+  .landing-page-card .hover-image, 
+  .landing-page-card .hover-image-disable {
+    display: none !important;
+  }
+  
+  /* Default hover-image effect for other reusable components */
+  .hover-image {
+    position: absolute;
+    bottom: -50px;
+    left: -100px;
+   
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translate(-50px, 50px);
+  }
+  
+  /* Show image on hover (for reusable components only) */
+  .custom-card:hover .hover-image {
+    opacity: 1;
+    transform: translate(100px, -50px);
+  }
+  

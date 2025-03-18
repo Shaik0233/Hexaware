@@ -40,7 +40,7 @@ const OfferSlider = () => {
   };
 
   return (
-    <section className="offer-slider-wrapper bg-primary text-white">
+    <section className="offer-slider-wrapper text-white">
       <div className="container ">
         <h2 className="text-lg-start w-50 ">
           Empower Your Business with Access to World-Class Products, Services, and Solutions
