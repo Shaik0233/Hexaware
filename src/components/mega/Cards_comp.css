@@ -1,0 +1,23 @@
+.card_container {
+    width: 70%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .card_container:hover {
+    background-color: blue !important;
+    color: white !important;
+  }
+  
+  /* Ensure text changes to white */
+  .card_container:hover h2,
+  .card_container:hover p {
+    color: white !important;
+  }
+  
+  /* Ensure button is styled properly */
+  .card_container:hover .btn {
+    background-color: white !important;
+    color: blue !important;
+    border-color: white !important;
+  }
+  

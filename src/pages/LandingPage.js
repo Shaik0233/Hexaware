@@ -10,25 +10,37 @@ import Fifth from "../components/fifth/Fifth";
 import Sixth from "../components/six/Sixth";
 import Nine from "../components/nine/Nine";
 import "../pages/LandingPage.css";
-import Api from "../components/Api";
-import Seventh from "../components/seventh/Seventh"
-
-
-
-
+// import Api from "../components/Api";
+import Seventh from "../components/seventh/Seventh";
+import FetchData from "../FetchData";
+import Fetch from "../FetchAxios"
+import Fetching from "../Fetching"
+import Footer from "../components/footer/Footer"
+import OpportunityMain from "../components/opportunity/OpportunityMain"
+import RealSection from "../components/real/RealComp";
+import NewsMain from "../components/news/NewsMain"
+import NineMain from "../components/nine/NineMain"
 function LandingPage() {
   return (
     <div>
       <BasicExample />
       <BackgroundWithDivs />
-      <OfferSlider />
+      <NineMain/>
+      {/* <OfferSlider /> */}
       <CustomLayout />
       <Fourth />
       <Fifth />
       <Sixth />
-      <Nine />
-      <Seventh/>
-      <Api/>
+      {/* <Seventh/> */}
+      <RealSection/>
+      <NewsMain/>
+      <OpportunityMain/>
+      <Footer/>
+      
+      {/* <FetchData/> */}
+      {/* <Fetch/>
+      <Fetching/> */}
+      
     </div>
     
   );

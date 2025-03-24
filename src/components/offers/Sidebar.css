@@ -1,0 +1,17 @@
+.sidebar {
+    padding-left: 20px;
+  }
+  
+  .sidebar h5 {
+    font-size: 16px;
+  }
+  
+  .sidebar .list-group-item {
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .sidebar .list-group-item:hover {
+    text-decoration: underline;
+  }
+  

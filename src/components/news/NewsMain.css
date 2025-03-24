@@ -1,0 +1,45 @@
+.slider-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .card-slide {
+    padding: 10px;
+  }
+  
+  .progress-container {
+    width: 75%;
+    background: #ddd;
+    height: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 5px;
+    background: #007bff;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .hello1{
+    background-color: #ffffff !important;
+  }
+  .progress_main{
+
+    background-color: #ffff !important;
+  }
+  .progress_main .right{
+    position: absolute;
+    bottom: 48px;
+    right: 6px;
+  }
+  .progress_main .left{
+    position: absolute;
+    bottom: 48px;
+    right: 69px;
+  }
+
+  

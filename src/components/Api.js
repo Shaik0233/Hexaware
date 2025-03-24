@@ -10,7 +10,6 @@ function Api() {
     const fetchData = async () => {
       try {
         const res = await axios.get("https://picsum.photos/v2/list?limit=12");
-        console.log("Fetched Data:", res.data); // Debugging
         setData(res.data);
       } catch (err) {
         console.log("Error fetching data:", err);

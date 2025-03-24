@@ -3,48 +3,42 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import CardComponent from "../eight/Eight";
+import CardComponent from "../eight/Eight"; // Ensure this component accepts title, text, and image props
 import "./Nine.css"; // Ensure this CSS file exists
 
-function Nine() {
+function Nine({ headings, description, cardData }) {
   const sliderRef = useRef(null);
   const [progress, setProgress] = useState(0);
 
-  const cardData = [
-    { title: "Pizza", text: "Delicious cheese pizza", image: "/images/baground_image.jpg" },
-    { title: "Burger", text: "Juicy beef burger", image: "/images/food_bg.jpg" },
-    { title: "Pasta", text: "Creamy Alfredo pasta", image: "/images/food_bg.jpg" },
-    { title: "Paddu", text: "Spicy South Indian delight", image: "/images/food_bg.jpg" },
-    { title: "Burger", text: "Juicy beef burger", image: "/images/food_bg.jpg" },
-    { title: "Pasta", text: "Creamy Alfredo pasta", image: "/images/food_bg.jpg" },
-    { title: "Paddu", text: "Spicy South Indian delight", image: "/images/food_bg.jpg" },
-    { title: "Burger", text: "Juicy beef burger", image: "/images/food_bg.jpg" },
-    { title: "Pasta", text: "Creamy Alfredo pasta", image: "/images/food_bg.jpg" },
-    { title: "Paddu", text: "Spicy South Indian delight", image: "/images/food_bg.jpg" },
-  ];
-
   const totalSlides = cardData.length;
-  const slidesToShow = 3; // Adjust based on responsiveness
+  const slidesToShow = 4; // Adjust based on screen size
 
   const settings = {
     dots: false,
     infinite: false,
-    speed: 600, // Smooth transition
-    slidesToShow:4,
+    speed: 600,
+    slidesToShow: slidesToShow,
     slidesToScroll: 2,
     autoplay: false,
     beforeChange: (oldIndex, newIndex) => {
-      setProgress(((newIndex + 1) / (totalSlides - slidesToShow + 1)) * 100);
+      const maxIndex = totalSlides - slidesToShow;
+      setProgress(((newIndex / maxIndex) * 100).toFixed(2)); // Proper percentage calculation
     },
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
+      { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
 
   return (
-    <div className="slider-container">
-      {/* Slick Slider */}
+    <div className="slider-container card-colour">
+ 
+      {headings.map((heading, index) => (
+        <h1 key={index}>{heading}</h1>
+      ))}
+      <p>{description}</p>
+
+      
       <Slider ref={sliderRef} {...settings}>
         {cardData.map((item, index) => (
           <div key={index} className="card-slide">

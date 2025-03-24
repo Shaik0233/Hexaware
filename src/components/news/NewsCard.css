@@ -1,0 +1,57 @@
+.reusable-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    max-width: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .reusable-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-img-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .card-content {
+    padding: 16px;
+    text-align: left;
+  }
+  
+  .card-date {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+  
+  .card-category {
+    font-size: 14px;
+    color: #007bff;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .reusable-card {
+      max-width: 100%;
+    }
+  
+    .card-title {
+      font-size: 16px;
+    }
+  }
+  
